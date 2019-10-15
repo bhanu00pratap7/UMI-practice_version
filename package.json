@@ -1,0 +1,39 @@
+{
+  "name": "umi-practice_version",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhanu00pratap7/UMI-practice_version.git"
+  },
+  "author": "Bhanu Pratap",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhanu00pratap7/UMI-practice_version/issues"
+  },
+  "homepage": "https://github.com/bhanu00pratap7/UMI-practice_version#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "hbs": "^4.0.6",
+    "mysql": "^2.17.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  },
+  "scripts": {
+    "serve": "nodemon server.js"
+  }
+
+}
