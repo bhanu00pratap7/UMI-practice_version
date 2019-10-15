@@ -19,27 +19,27 @@ app.use(session({secret: 'I have a car'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static('public')); 
-app.use(express.static('assets'));
-app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname, "/public/index.html"));
-});
+app.use('/',express.static('public')); 
+app.use('/public', express.static(path.join(__dirname, './public')));
+app.use('/assets',express.static(path.join(__dirname, './assets')));
+
+
 
 app.post('/login', passport.authenticate('local',
     {
        successRedirect: '/success',
        failureRedirect: '/failure',
-       failureFlash: true
+       //failureFlash: true
      }
 ));
 
 passport.use(new passportLocal(
              function(email, password, done) {
               database.getUser(email, function(data) {
-                 console.log(data[0].password);
-                 console.log(data);
+                 //console.log(data[0].password);
+                 //console.log(data);
 
-                  if(email !== data[0].email) {
+                  if(email!== data[0].email) {
                       return done(null, false, {message: 'email is incorrect'});
                   }
 
@@ -48,15 +48,9 @@ passport.use(new passportLocal(
                       if(!show) {
                           return done(null, false, {message: 'password is incorrect'});
                       }
-
-
-
                       return done(null, data[0].email);
-
-
-                  });
-
-              })
+                     });
+                })
 
              })
 );
